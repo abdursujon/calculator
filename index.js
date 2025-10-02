@@ -173,7 +173,7 @@ function showSettings() {
 
     // Add listener for the "Back" button to return without saving
     document.getElementById("back-btn").addEventListener("click", function () {
-        // Restore the original calculator view without saving any new settings
+        // Restore the original calculator view without saving any new settings 
         calculatorElement.innerHTML = originalCalculatorHTML;
         // Re-attach listeners and apply the original settings
         reattachListenersAndApplyTheme();
