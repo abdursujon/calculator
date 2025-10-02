@@ -1,174 +1,269 @@
-body{
-    display:flex;
-    justify-content: center;
-    align-items:center;
+/* =================================
+   1. General & Body Styles
+   ================================= */
+body {
+    margin: 0;
+    background: black;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
 }
-#calculator{
+
+svg {
+    color: white;
+}
+
+/* =================================
+   2. Background Animation
+   ================================= */
+.stars {
+    position: fixed;
+    /* ensures stars stay in background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 40px 70px, white, transparent),
+        radial-gradient(2px 2px at 50px 160px, white, transparent),
+        radial-gradient(2px 2px at 90px 40px, white, transparent),
+        radial-gradient(2px 2px at 130px 80px, white, transparent);
+    background-repeat: repeat;
+    background-size: 800px 600px;
+    animation: star-move 30s linear infinite;
+    z-index: -1;
+    /* put behind all content */
+}
+
+@keyframes star-move {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -800px 600px;
+    }
+}
+
+/* =================================
+   3. Calculator Layout & Components
+   ================================= */
+#calculator {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
-    width:100vw;
-    height: 100vh;
-    overflow: hidden;
-    padding:0;
+    font-size: 18px; /* Set a base font size for the calculator */
+    padding: 0;
     margin: 0;
-    position:fixed;
-    top:0;
-    left: 0;
 }
-svg{
-    color:white;
-}
-.flex-container {
-  display: flex;
-  height:55vh;
-  align-items: flex-end;
-  background-color: hsl(0, 0%, 20%);
-}
-#display{
-    font-size: 18px;
+
+#display {
+    font-size: 1.5em; /* 1.5 * 18px = 27px initial size */
     width: 100vw;
-    border:none;
-    color:white;
+    border: none;
+    color: white;
     background-color: transparent;
     padding-left: 25px;
     margin-bottom: 20px;
 }
-#keys{
+
+/* This container holds the display */
+.flex-container {
+    display: flex;
+    height: 55vh;
+    align-items: flex-end;
+    background-color: hsl(0, 0%, 20%);
+}
+
+#keys {
     display: grid;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     grid-template-columns: repeat(4, 1fr);
-    gap:10px;
+    gap: 10px;
     padding: 20px 0px;
     padding-left: 25px;
 }
 
-#keys button{
+#keys button {
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    border:none;
-    background-color:hsl(0, 0%, 30%);
-    color:white;
-    font-size:1.4rem;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 1.2em; /* Relative to #calculator font-size */
     font-weight: bold;
-    cursor:pointer;
+    cursor: pointer;
 }
-button:hover{
+
+button:hover {
     background-color: hsl(0, 0%, 40%);
 }
-button:active{
+
+button:active {
     background-color: hsl(0, 0%, 55%);
 }
-.operator-btn{
-    background-color: hsl(35, 100%, 55%) !important;
-    font-size: 1.4rem;
+
+.operator-btn {
+    background-color: hsl(35, 100%, 55%);
+    /* font-size is inherited from #keys button */
 }
-.operator-btn:hover{
+
+.operator-btn:hover {
     background-color: hsl(35, 100%, 75%);
 }
-.operator-btn:active{
+
+.operator-btn:active {
     background-color: hsl(35, 100%, 95%);
 }
 
+/* =================================
+   4. Settings View Styles
+   (Dynamically Injected)
+   ================================= */
 
-/* Css for settings */
-#settings-div{
-    background-color: black;
-    width: 100vw;
-}
-#keys-2{
-    display: grid;
-    justify-content: center;
-    align-items:center;
-    grid-template-columns: repeat(3, 1fr);
-    gap:2px;
-    background-color: black;
-    height: 500px;
-    width: 100%;
-    color:white;
-    position: fixed; 
-    top: 30vh;
-    left: 0;
-    transition: bottom 0.3s ease-in-out; 
-    padding-bottom: 40px;
+.theme-container p {
+    text-align: center;
+    /* optional: center the text */
+    font-weight: bold;
+    /* optional: style */
+    color: white;
+    margin-top: 20px;
 }
 
-#keys-2 button{
-    width:100%;
-    height: 120px;
+#done-btn{
+    border-radius: 25px;
+    width: 70px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-right: 5px;
+    color:black;
     border:none;
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
 }
 
-
-/* When active, slide it up */
-
-#keys-2 p {
-  grid-column: 1 / -1;
-  text-align: center; /* optional: center the text */
-  font-weight: bold;  /* optional: style */
-}
-.change-color-1 , .change-color-2, .change-color-3, .change-color-4, .change-color-4, .change-color-5, .change-color-6 {
-    width: 80px;
+/* Theme color selection buttons */
+.change-color-1,
+.change-color-2,
+.change-color-3,
+.change-color-4,
+.change-color-4,
+.change-color-5,
+.change-color-6,
+.change-color-7,
+.change-color-8,
+.change-color-9 {
+    width: 120px;
     height: 80px;
     border-radius: none;
 }
-.change-color-1{
+
+.change-color-1 {
     background-color: #F08B51;
 }
-.change-color-2{
+
+.change-color-2 {
     background-color: #E97777;
 }
-.change-color-3{
+
+.change-color-3 {
     background-color: #8675A9;
 }
-.change-color-4{
+
+.change-color-4 {
     background-color: #6FE8C8;
 }
 
-.change-color-5{
+.change-color-5 {
     background-color: #6D94C5;
 }
-.change-color-6{
+
+.change-color-6 {
     background-color: #8AA624;
 }
-.change-color-7{
+
+.change-color-7 {
     background-color: #03A791;
 }
 
-.change-color-8{
+.change-color-8 {
     background-color: #3674B5;
 }
-.change-color-9{
+
+.change-color-9 {
     background-color: #4DFFBE;
 }
-#larger-txt , #smaller-txt, #back-btn{
+
+/* Font and Back buttons in settings */
+#larger-txt,
+#smaller-txt,
+#back-btn {
     background-color: hsl(0, 0%, 40%);
-}
-#keys-2 #larger-txt ,  #keys-2 #smaller-txt, #keys-2 #back-btn{
-  font-size: 12px;
-  grid-column: 1 / -1;
-  text-align: center;
-  width: 100%;
-  height: 20px;
-   border:.2px solid hsl(0, 2%, 75%);
-   border-left: none;
-   border-right: none;
-}
-#keys-2 #larger-txt{
-    margin-top: 20px;
-}
-#keys-2 #smaller-txt{
-    border-top:.2px solid hsl(0, 2%, 75%);
-    margin-top: -5px;
+    border:none;
+    color:rgb(235, 235, 235);
 }
 
-#keys-2 #back-btn{
-    width: 50px;
+.theme-container #larger-txt {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.theme-container #smaller-txt {
+    border-top: .2px solid hsl(0, 2%, 75%);
+    margin-top: 20px;
+}
+
+.theme-container #back-btn,
+.theme-container #larger-txt,
+#smaller-txt,
+#back-btn {
+    width: 100%;
     text-align: center;
     border-radius: 25px;
     margin-top: 20px;
+}
+
+/* Class for the selected theme button */
+.active-border {
+    border: 2px solid white !important;
+}
+
+/* =================================
+   5. Media Queries (Responsive Design)
+   ================================= */
+@media (max-width: 576px) {
+
+    /* --- Settings Buttons on Mobile --- */
+    .theme-container #back-btn,
+    .theme-container #larger-txt,
+    #smaller-txt,
+    #back-btn {
+        width: 90%;
+    }
+
+    /* --- Calculator Layout on Mobile --- */
+    #calculator {
+        height: 100vh;
+        width: 100vw;
+        padding: 0px;
+        margin: 0;
+    }
+
+    .container {
+        padding: 0px;
+        margin: 0;
+    }
+
+}
+
+@media (min-width: 576px) {
+
+    /* --- Calculator Layout on Desktop --- */
+    #calculator {
+        height: 850px;
+        width: 395px;
+        padding: 0px;
+        margin: 0
+    }
 }
