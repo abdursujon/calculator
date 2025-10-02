@@ -1,14 +1,23 @@
-let display = document.getElementById("display");
+/* =================================================================
+   1. INITIALIZATION & GLOBAL VARIABLES
+   ================================================================= */
+
+// DOM Elements
 const calculatorElement = document.getElementById("calculator");
+let display = document.getElementById("display");
+
+// State
 const originalCalculatorHTML = calculatorElement.innerHTML; // Store the initial calculator HTML
-// Add click handler to every button
-function clearError() {
-    if (display.value === "error") {
+
+/* =================================================================
+   2. CORE CALCULATOR FUNCTIONS
+   (These are called via onclick attributes in the HTML)
+   ================================================================= */
+function appendToDisplay(value) {
+    // Clear "Error" message before appending new value
+    if (display.value === "Error") {
         display.value = "";
     }
-}
-
-function appendToDisplay(value) {
     display.value += value;
 }
 
@@ -16,20 +25,22 @@ function clearDisplay() {
     display.value = "";
 }
 
-function calculate() {
-    //eval function is js built in function for calculation
-    try {
-        display.value = eval(display.value);
-    }
-    catch (error) {
-        display.value = "Error";
-    }
-
-}
-
 function backspace() {
     display.value = display.value.slice(0, -1);
 }
+
+function calculate() {
+    try {
+        // Using eval() is generally discouraged due to security risks, but it's a quick way to implement calculation logic.
+        display.value = eval(display.value) || "";
+    } catch (error) {
+        display.value = "Error";
+    }
+}
+
+/* =================================================================
+   3. SETTINGS & CUSTOMIZATION LOGIC
+   ================================================================= */
 
 function applyTheme() {
     const savedColor = localStorage.getItem('calculatorTheme');
@@ -48,17 +59,7 @@ function applyFontSize() {
     }
 }
 
-function reattachListenersAndApplyTheme() {
-    // Re-select the display element as it was replaced
-    display = document.getElementById("display");
-    // Re-attach the settings button listener
-    document.getElementById("settings-btn").addEventListener("click", showSettings);
-    // Apply all saved settings
-    applyTheme();
-    applyFontSize();
-}
-
-// Settings js
+// This function dynamically builds and displays the settings view
 function showSettings() {
     calculatorElement.innerHTML = ` 
     <div class="container theme-container">
@@ -179,10 +180,23 @@ function showSettings() {
         reattachListenersAndApplyTheme();
     });
 }
-
-// Initial setup
-document.getElementById("settings-btn").addEventListener("click", showSettings);
-document.addEventListener('DOMContentLoaded', () => {
+// This function is called to restore the calculator view and its functionality
+function reattachListenersAndApplyTheme() {
+    // Re-select the display element as it was replaced
+    display = document.getElementById("display");
+    // Re-attach the settings button listener
+    document.getElementById("settings-btn").addEventListener("click", showSettings);
+    // Apply all saved settings
     applyTheme();
     applyFontSize();
-});
+}
+
+/* =================================================================
+   4. EVENT LISTENERS & INITIAL SETUP
+   ================================================================= */
+
+// Apply settings when the page first loads
+document.addEventListener('DOMContentLoaded', reattachListenersAndApplyTheme);
+
+// Initial listener for the settings button
+document.getElementById("settings-btn").addEventListener("click", showSettings);
