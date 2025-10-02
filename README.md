@@ -1,6 +1,6 @@
 # 🌟 Star Calculator
 
-<h1 align="center">A Responsive Calculator with Theme & Font Customization</h1>
+<h1>A Responsive Calculator with Theme & Font Customization</h1>
 
 ---
 
@@ -20,7 +20,6 @@
 ## Demo
 Check out a short video demonstration of the key functionality:  
 
-> *(Attach your video here if available)*  
 
 Try it live: [Star Calculator](https://star-calulator.netlify.app/)
 
@@ -44,7 +43,3 @@ Try it live: [Star Calculator](https://star-calulator.netlify.app/)
 
 ## Feedback
 I’d love to hear your thoughts! Feel free to reach out with suggestions, comments, or improvements.  
-
----
-
-Made with ❤️ by [Your Name]
