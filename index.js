@@ -90,15 +90,15 @@ function showSettings() {
                 <button type="button" class="change-color-9" id="theme-9"></button>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-center">
+            <div class="col-sm-12 d-flex justify-content-center font-btn">
                 <button type="button" id="larger-txt">Larger Font</button>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-center">
+            <div class="col-sm-12 d-flex justify-content-center  font-btn">
                 <button type="button" id="smaller-txt">Smaller Font</button>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-center">
+            <div class="col-sm-12 d-flex justify-content-center  font-btn">
                 <button type="button" id="back-btn">Back</button>
             </div>
         </div>

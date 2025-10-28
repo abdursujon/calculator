@@ -50,17 +50,19 @@ svg {
 /* =================================
    3. Calculator Layout & Components
    ================================= */
-#calculator {
+body #calculator {
+    /* Increased specificity to override Bootstrap if needed */
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
-    font-size: 18px; /* Set a base font size for the calculator */
+    font-size: 18px;
     padding: 0;
     margin: 0;
 }
 
 #display {
-    font-size: 1.5em; /* 1.5 * 18px = 27px initial size */
-    width: 100vw;
+    font-size: 1.5em;
+    /* 1.5 * 18px = 27px initial size */
+    width: 100%;
     border: none;
     color: white;
     background-color: transparent;
@@ -71,7 +73,8 @@ svg {
 /* This container holds the display */
 .flex-container {
     display: flex;
-    height: 55vh;
+    min-height: 25vh;
+    /* Use min-height to allow it to grow */
     align-items: flex-end;
     background-color: hsl(0, 0%, 20%);
 }
@@ -81,19 +84,20 @@ svg {
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px 0px;
-    padding-left: 25px;
+    gap: 15px;
+    padding: 25px;
 }
 
 #keys button {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    /* Maintain a square shape */
+    aspect-ratio: 1 / 1;
     border-radius: 50px;
     border: none;
     background-color: hsl(0, 0%, 30%);
     color: white;
-    font-size: 1.2em; /* Relative to #calculator font-size */
+    font-size: 1.2em;
+    /* Relative to #calculator font-size */
     font-weight: bold;
     cursor: pointer;
 }
@@ -123,6 +127,15 @@ button:active {
    4. Settings View Styles
    (Dynamically Injected)
    ================================= */
+.font-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+}
+¬
+.theme-container {
+    margin: 50px 0px;
+}
 
 .theme-container p {
     text-align: center;
@@ -133,14 +146,14 @@ button:active {
     margin-top: 20px;
 }
 
-#done-btn{
+#done-btn {
     border-radius: 25px;
     width: 70px;
     margin-bottom: 10px;
     font-size: 14px;
     margin-right: 5px;
-    color:black;
-    border:none;
+    color: black;
+    border: none;
 }
 
 /* Theme color selection buttons */
@@ -200,8 +213,8 @@ button:active {
 #smaller-txt,
 #back-btn {
     background-color: hsl(0, 0%, 40%);
-    border:none;
-    color:rgb(235, 235, 235);
+    border: none;
+    color: rgb(235, 235, 235);
 }
 
 .theme-container #larger-txt {
@@ -234,23 +247,23 @@ button:active {
    ================================= */
 @media (max-width: 576px) {
 
-    /* --- Settings Buttons on Mobile --- */
-    .theme-container #back-btn,
-    .theme-container #larger-txt,
-    #smaller-txt,
-    #back-btn {
-        width: 90%;
-    }
-
     /* --- Calculator Layout on Mobile --- */
     #calculator {
         height: 100vh;
         width: 100vw;
-        padding: 0px;
-        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #keys {
+        /* The keys section should grow to fill the remaining space */
+        flex-grow: 1;
+        gap: 10px;
+        padding: 20px;
     }
 
     .container {
+        /* Remove padding on mobile to allow calculator to be full-width */
         padding: 0px;
         margin: 0;
     }
@@ -261,9 +274,10 @@ button:active {
 
     /* --- Calculator Layout on Desktop --- */
     #calculator {
-        height: 850px;
-        width: 395px;
-        padding: 0px;
-        margin: 0
+        max-width: 395px;
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        /* Ensures content respects the border-radius */
     }
 }
