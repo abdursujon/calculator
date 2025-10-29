@@ -1,45 +1,32 @@
-# 🌟 Star Calculator
+<div align="left">
 
-<h1>A Responsive Calculator with Theme & Font Customization</h1>
+# Star Calculator
 
----
+**Technologies:** JavaScript, CSS, HTML5  
+**Project Type:** Interactive Apple-Style Calculator
 
-## Overview
-**Star Calculator** is a modern, responsive calculator web app that not only performs basic arithmetic operations but also allows users to **customize their experience** with theme and font options.
+## Description
 
----
+Star Calculator is a web-based, Apple-style calculator capable of performing all standard mathematical operations. It offers a customizable interface to enhance user experience.
 
 ## Features
-- **Responsive Design** – Works perfectly on desktops, tablets, and mobile devices.  
-- **Theme Switching** – Switch between multiple color themes to suit your preference.  
-- **Font Size Adjustment** – Change the font size of the entire page with a single click.  
-- **Interactive UI** – Easy-to-use buttons and visually appealing layout.  
 
----
+- Perform all standard mathematical operations (addition, subtraction, multiplication, division, etc.).
+- Theme customization allowing users to switch between different colours.
+- Dynamic font size adjustment for personalized display readability.
 
-## Demo
-Check out a short video demonstration of the key functionality:  
+## Usage
 
+- Visit the [live website](https://star-calulator.netlify.app) to use the calculator.
+- Users can input calculations, change themes, and adjust font sizes directly on the interface.
 
-Try it live: [Star Calculator](https://star-calulator.netlify.app/)
+## Project Link
 
----
+[star-calulator.netlify.app](https://star-calulator.netlify.app)
 
-## Technologies Used
-- HTML5  
-- CSS3  
-- JavaScript  
-- Netlify for deployment  
+## Author and Copyrights
 
----
+Abdur Sujon
 
-## How to Use
-1. Open the website in your browser.  
-2. Use the calculator as usual.  
-3. Click on the **theme buttons** to change the color theme.  
-4. Click on the **font size buttons** to adjust the text size across the page.  
+</div>
 
----
-
-## Feedback
-I’d love to hear your thoughts! Feel free to reach out with suggestions, comments, or improvements.  
