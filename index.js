@@ -62,13 +62,13 @@ function applyFontSize() {
 // This function dynamically builds and displays the settings view
 function showSettings() {
     calculatorElement.innerHTML = ` 
-    <div class="container theme-container">
+    <div class="container theme-container mb-5" >
         <div class="row">
             <div class="col-sm-12 d-flex justify-content-center">
                 <p>Change Theme</p>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-end">
+            <div class="col-sm-12 d-flex justify-content-end px-5">
                <button type="button" id="done-btn">Done</button>
             </div>
     
@@ -90,15 +90,15 @@ function showSettings() {
                 <button type="button" class="change-color-9" id="theme-9"></button>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-center font-btn">
+            <div class="col-sm-12 d-flex justify-content-center px-5">
                 <button type="button" id="larger-txt">Larger Font</button>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-center  font-btn">
+            <div class="col-sm-12 d-flex justify-content-center   px-5">
                 <button type="button" id="smaller-txt">Smaller Font</button>
             </div>
     
-            <div class="col-sm-12 d-flex justify-content-center  font-btn">
+            <div class="col-sm-12 d-flex justify-content-center  px-5">
                 <button type="button" id="back-btn">Back</button>
             </div>
         </div>

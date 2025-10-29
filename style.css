@@ -127,12 +127,8 @@ button:active {
    4. Settings View Styles
    (Dynamically Injected)
    ================================= */
-.font-btn {
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 200px;
-}
-¬
+
+
 .theme-container {
     margin: 50px 0px;
 }
